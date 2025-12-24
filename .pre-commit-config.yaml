@@ -4,6 +4,7 @@ repos:
     hooks:
       - args:
           - --description=Run 'pyright'
+          - --github--pull-request--pre-commit
           - --github--push--tag
           - --github--push--tag--latest
           - --github--push--tag--major
