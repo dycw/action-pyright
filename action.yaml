@@ -33,6 +33,10 @@ runs:
       with:
         token: ${{inputs.token-checkout}}
 
+    - name: List directory contents
+      run: ls -al
+      shell: bash
+
     - name: Install 'uv'
       uses: astral-sh/setup-uv@v7
       with:
