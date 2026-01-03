@@ -45,16 +45,16 @@ runs:
 
     - name: Run 'pyright'
       env:
+        UV_PRERELEASE: ${{inputs.prerelease}}
         UV_PYTHON: ${{inputs.python-version}}
         UV_RESOLUTION: ${{inputs.resolution}}
-        UV_PRERELEASE: ${{inputs.prerelease}}
       run: |
         set -euo pipefail
-        args=(uv run --all-extras)
+        args=(uv run --all-extras --all-groups --exact)
         if [ -n "${{inputs.with-requirements}}" ]; then
           args+=(--with-requirements "${{inputs.with-requirements}}")
         fi
-        args+=(pyright)
+        args+=(--isolated --reinstall pyright)
         echo "[$(date +'%Y-%m-%d %H:%M:%S')] Running:"
         printf '%q ' "${args[@]}"
         echo
