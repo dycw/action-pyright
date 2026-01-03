@@ -33,10 +33,6 @@ runs:
       with:
         token: ${{inputs.token-checkout}}
 
-    - name: List directory contents
-      run: ls -al
-      shell: bash
-
     - name: Install 'uv'
       uses: astral-sh/setup-uv@v7
       with:
@@ -45,9 +41,9 @@ runs:
 
     - name: Run 'pyright'
       env:
-        UV_PRERELEASE: ${{inputs.prerelease}}
         UV_PYTHON: ${{inputs.python-version}}
         UV_RESOLUTION: ${{inputs.resolution}}
+        UV_PRERELEASE: ${{inputs.prerelease}}
       run: |
         set -euo pipefail
         args=(uv run --all-extras --all-groups --exact)
