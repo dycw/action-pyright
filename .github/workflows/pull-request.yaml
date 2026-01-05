@@ -15,4 +15,5 @@ jobs:
           repos: |-
             dycw/conformalize
             pre-commit/pre-commit-hooks
-          token: ${{secrets.GITHUB_TOKEN}}
+          token-checkout: ${{secrets.GITHUB_TOKEN}}
+          token-uv: ${{secrets.GITHUB_TOKEN}}
