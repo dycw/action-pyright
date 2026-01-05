@@ -1,3 +1,3 @@
-# `template-action`
+# `action-pyright`
 
 Run 'pyright'
